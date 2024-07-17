@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo APP</title>
+    <style>
+        /* Set light grey background */
+        body {
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        /* Style the navbar */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;  /* Center content horizontally */
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            
+        }
+
+        /* Style the main canvas */
+        .main-canvas {
+            width: 33.33%;  /* Middle third of the screen */
+            margin: 0 auto;  /* Center horizontally */
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fff;  /* White background for the canvas */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1><a href="#">Todo APP</a></h1>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-canvas">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+
+</body>
+</html>
