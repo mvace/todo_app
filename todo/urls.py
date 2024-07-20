@@ -1,11 +1,11 @@
 from django.urls import path
 
-from .views import TaskList, TaskDetail, TaskDelete
+from .views import TaskListCreate, TaskDelete, toggle_finished
 
 app_name = "todo"
 
 urlpatterns = [
-    path("", TaskList.as_view(), name="tasks"),
-    path("task/<int:pk>", TaskDetail.as_view(), name="task-detail"),
+    path("", TaskListCreate.as_view(), name="tasks"),
     path("task/delete/<int:pk>", TaskDelete.as_view(), name="task-delete"),
+    path("task/toggle/<int:pk>", toggle_finished, name="toggle-task-finished"),
 ]
