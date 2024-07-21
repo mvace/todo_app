@@ -12,11 +12,13 @@
   {% for object in tasks %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     <div class="task-content">
-      <h3>{{ object.title }}</h3>
+      
       {% if not object.finished %}
+      <h3 >{{ object.title }}</h3>
         <a href="{% url 'todo:toggle-task-finished' object.id %}"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" title="Mark the task as completed">✓</button></a>
       {% else %}
-        <a href="{% url 'todo:toggle-task-finished' object.id %}"><button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" title="Unmarark the task as completed">X</button></a>
+      <h3 style="text-decoration: line-through;">{{ object.title }}</h3>
+        <a href="{% url 'todo:toggle-task-finished' object.id %}"><button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" title="Unmark the task as completed">X</button></a>
       {% endif %}
       <a href="{% url 'todo:task-update' object.id %}"><button type="button" class="btn btn-primary" data-bs-toggle="tooltip" title="Update the task">Update</button></a>
       <a href="{% url 'todo:task-delete' object.id %}"><button type="button" class="btn btn-danger" data-bs-toggle="tooltip" title="Delete the task">Delete</button></a>
