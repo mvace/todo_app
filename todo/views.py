@@ -27,8 +27,8 @@ class TaskListCreate(View):
 
 class TaskUpdate(UpdateView):
     model = Task
-    fields = ["title", "description", "complete"]
-    success_url = reverse_lazy("todo:task-detail")
+    fields = ["title", "finished"]
+    success_url = reverse_lazy("todo:tasks")
 
 
 class TaskDelete(DeleteView):

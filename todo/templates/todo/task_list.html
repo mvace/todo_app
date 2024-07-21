@@ -2,10 +2,10 @@
 
 {% block content %}
 <h2>Create New Task</h2>
-<form method="post" class="form-inline">
+<form method="post" class="form-inline" style="margin-bottom: 20px;">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit" class="btn btn-primary">Add Task</button>
+  <button type="submit" class="btn btn-primary">Add</button>
 </form>
 
 <ul class="list-group task-list">
@@ -14,11 +14,12 @@
     <div class="task-content">
       <h3>{{ object.title }}</h3>
       {% if not object.finished %}
-        <a href="{% url 'todo:toggle-task-finished' object.id %}"><button type="button" class="btn btn-outline-success">✓</button></a>
+        <a href="{% url 'todo:toggle-task-finished' object.id %}"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" title="Mark the task as completed">✓</button></a>
       {% else %}
-        <a href="{% url 'todo:toggle-task-finished' object.id %}"><button type="button" class="btn btn-outline-danger">X</button></a>
+        <a href="{% url 'todo:toggle-task-finished' object.id %}"><button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" title="Unmarark the task as completed">X</button></a>
       {% endif %}
-      <a href="{% url 'todo:task-delete' object.id %}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+      <a href="{% url 'todo:task-update' object.id %}"><button type="button" class="btn btn-primary" data-bs-toggle="tooltip" title="Update the task">Update</button></a>
+      <a href="{% url 'todo:task-delete' object.id %}"><button type="button" class="btn btn-danger" data-bs-toggle="tooltip" title="Delete the task">Delete</button></a>
     </div>
   </li>
 {% endfor %}
